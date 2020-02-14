@@ -1,15 +1,14 @@
- Nackage pozoriste;
+package com.tongo.backend.data.models;
 
-import liquibase.change.DatabaseChange;
 import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.annotation.Generated;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +18,9 @@ import java.util.Date;
 @Table(name = "Actors")
 public class Actors {
 
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     private int actorID;
     private String fname;
     private String lname;

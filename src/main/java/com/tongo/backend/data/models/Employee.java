@@ -1,13 +1,15 @@
-package com.pozoriste.pozoristebackend.data.models;
+package com.tongo.backend.data.models;;
 
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pozoriste.Role;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name="employee")
 public class Employee {
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     private int id;
     private String firstName;
     private String lastName;
